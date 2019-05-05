@@ -2,7 +2,7 @@
 
 [![N|Solid](https://www.idqweb.com/wp-content/uploads/2016/08/cabecera-nodejs-express.png)](https://nodesource.com/products/nsolid)
 
-Implementación de un serividor REST con Express+NodeJS tiene un endpoint único que recibe en el body un campo "text" con un texto a justificar y un campo "long" con el largo de la linea. Devuelve un arreglo con cada una de las lineas justifiadas a longitud pasada como "long".
+Implementación de un serividor REST con Express+NodeJS tiene un endpoint único que recibe como params dos valores, un campo "text" con un texto a justificar y un campo "count" con el largo de la linea. Devuelve un arreglo con cada una de las lineas justifiadas a longitud pasada como "count".
 
 
 # Endpont!
@@ -43,7 +43,7 @@ $ npm run dev
 
 ### Probar en localhost / Try at localhost
 
-- http://localhost:3000/getJustified
+- http://localhost:3000/getJustified/:text/:count
 
 ```
 body: {

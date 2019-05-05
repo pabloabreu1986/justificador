@@ -7,6 +7,7 @@ module.exports.Justifier = (parag, long, pat) => {
     let line = '';
     let arrLines = [];
     let lastWord = arrParag[arrParag.length - 1];
+    let lon = 0;
 
     arrParag.map(word => {
 
@@ -15,20 +16,20 @@ module.exports.Justifier = (parag, long, pat) => {
 
         } else {
 
-            if (line.length + word.length + 1 < long) {
+            if (line.length + word.length + 1 <= long) {
                 line = `${line}${pat}${word}`;
 
             } else {
 
-                let lon = long - line.length;
+                lon = long - line.length;
                 line = adjSpaces(line, lon, pat);
                 arrLines.push(line);
                 line = word;
-
-                if (line == lastWord) {
-                    adjSpaces(line, lon, pat);
-                    arrLines.push(line);
-                }
+               
+            }
+            if (word == lastWord) {
+                adjSpaces(line, lon, pat);
+                arrLines.push(line);
             }
         }
     });
@@ -46,11 +47,11 @@ let adjSpaces = (elements, spaces, pat) => {
     if (spacesToInsert > 0) {
 
         for (let index = 0; index < initialSpaces; index++) {
-            elements = (elements).slice(0, spacesPositions[index] + index) + pat.repeat(spacesToInsert) + (elements).slice(spacesPositions[index] + index);
+            elements = (elements).slice(0, spacesPositions[index] + index*spacesToInsert) + pat.repeat(spacesToInsert) + (elements).slice(spacesPositions[index] + index*spacesToInsert);
         }
 
         for (let index = 0; index < restOfSpaces; index++) {
-            elements = (elements).slice(0, spacesPositions[index] + index) + pat + (elements).slice(spacesPositions[index] + index);
+            elements = (elements).slice(0, spacesPositions[index] + index*spacesToInsert +index) + pat + (elements).slice(spacesPositions[index] + index*spacesToInsert+index);
         }
 
     } else {
