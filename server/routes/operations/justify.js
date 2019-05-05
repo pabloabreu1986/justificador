@@ -6,12 +6,13 @@ const httpStatusCodes = require('http-status-codes');
 const {Justifier} = require('../../lib/justifier');
 
 
-app.get('/getJustified', (req, res) => {
+app.get('/getJustified/{params}', (req, res) => {
 
-  const TEXT = req.body.text;
-  const LONG = req.body.long;
+  const TEXT = req.params.text;
+  const LONG = req.params.count;
+  const PAT = req.params.pattern || ' ';
 
-  const JUSTIFIED = Justifier(TEXT, LONG);
+  const JUSTIFIED = Justifier(TEXT, LONG, PAT);
 
   res.json({
     status: httpStatusCodes.OK,
