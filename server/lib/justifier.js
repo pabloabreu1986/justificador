@@ -59,7 +59,6 @@ let adjSpaces = (elements, spaces, pat) => {
         for (let index = 0; index < restOfSpaces; index++) {
             elements = (elements).slice(0, spacesPositions[index] + index) + pat + (elements).slice(spacesPositions[index] + index);
         }
-
     }
 
     return elements;
