@@ -10,7 +10,7 @@ app.get('/getJustified/:text/:count', (req, res) => {
 
   const TEXT = req.params.text;
   const LONG = req.params.count;
-  const PAT = ' ';
+  const PAT = '_';
 
   const JUSTIFIED = Justifier(TEXT, LONG, PAT);
 
