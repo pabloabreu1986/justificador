@@ -46,9 +46,24 @@ $ npm run dev
 - http://localhost:3000/getJustified/:text/:count
 
 ```
-body: {
-    "text": "Este es el texto que necesito justificar con este endpoint",
-    "long":15
+https://justifier.herokuapp.com/getJustified/Este es el texto que se pretende justificar a un largo de linea de 10 caracteres/10
+```
+
+```
+{
+status: 200,
+long: "10",
+text: [
+"Este es el",
+"texto que",
+"se",
+"pretende",
+"justificar",
+"a un largo",
+"de linea",
+"de 10",
+"caracteres"
+]
 }
 ```
 
